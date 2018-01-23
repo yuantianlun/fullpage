@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="jquery.fullPage.css">
+    <script src="jquery-3.2.1.js"></script>
+    <script src="jquery.easing.min.js"></script>
+    <script src="jquery.fullPage.min.js"></script>
+</head>
+<style>
+     .back{
+         left: 0;
+         top: 0;
+         bottom: 0;
+         right: 0;
+         height: 100%;
+         width: 100%;
+         z-index: 0;
+         position: fixed;
+         overflow: hidden;
+         background-size: cover;
+         background-position: center center;
+     }
+    .logo{
+        width:130px;
+        height: 130px;
+        /*margin:20px 50px;*/
+        border-radius: 50%;
+        position: relative;
+        top: -50px;
+        left: 0;
+        right:0;
+        margin: 0 auto;
+        overflow: hidden;
+        transform:scaleX(0);
+        transition: 2s all;
+    }
+    .logo img{
+        width:100%;
+    }
+    .kuan{
+        position: relative;
+        top:-60px;
+        width:80%;
+        margin:0 auto;
+        display: flex;
+        justify-content: space-around;
+    }
+    .kuanyuan{
+        width:300px;
+        height: 300px;
+        overflow: hidden;
+        transform: scale(0,0);
+        transition: all 2s;
+        text-align: center;
+        /*line-height: 200px;*/
+        font-size: 16px;
+    }
+    .kuanyuan img{
+        border-radius: 50%;
+        display: block;
+        width:200px;
+        margin:0 auto;
+    }
+     .kuanyuan img:hover{
+         transform: scale(1.2,1.2);
+     }
+    .tableCell{
+        padding: 0!important;
+    }
+</style>
+<body>
+<div class="back" style="background-image:url('img/hd-1.jpg');"></div>
+<div class="dowebok">
+    <div class="section">
+        <div>
+            <img src="img/bg-color-1.jpg" alt="">
+        </div>
+    </div>
+    <div class="section">
+        <div class="logo">
+
+            <img src="img/logo.jpg" alt="">
+        </div>
+        <div class="kuan">
+            <div class="kuanyuan">
+                <p>百大DJ</p>
+                <img src="img/artist-1.jpg" alt="">
+            </div>
+            <div class="kuanyuan">
+                <p>百大DJ</p>
+                <img src="img/artist-2.jpg" alt="">
+            </div>
+            <div class="kuanyuan">
+                <p>百大DJ</p>
+                <img src="img/artist-3.jpg" alt="">
+            </div>
+            <div class="kuanyuan">
+                <p>百大DJ</p>
+                <img src="img/artist-4.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h3>第三屏</h3>
+    </div>
+    <div class="section">
+        <h3>第四屏</h3>
+    </div>
+</div>
+</body>
+
+<script>
+    $(".dowebok").fullpage({
+        'navigation': true,
+        scrollingSpeed:1000,
+//        onLeave:function(index){
+//            if(index===1){
+//            $(".logo").css("transform","scaleX(1)");
+//            $(".kuanyuan").css("transform","scale(1,1)")
+//            }
+//        },
+        afterLoad:function(anchor,index){
+            if(index===2){
+                $(".logo").css("transform","scaleX(1)");
+                $(".kuanyuan").css("transform","scale(1,1)")
+            }
+        },
+        onLeave:function(index){
+            if(index===2){
+                $(".logo").css("transform","scaleX(0)");
+                $(".kuanyuan").css("transform","scale(0,0)")
+            }
+        }
+
+    })
+</script>
+</html>
