@@ -159,7 +159,7 @@
          /*border:1px solid red;*/
          perspective: 1000px;
          transform-style: preserve-3d;
-         transition: all 1s;
+         /*transition: all 1s;*/
      }
      .scene ul{
          width:400px ;
@@ -170,6 +170,7 @@
          list-style: none;
          /*overflow: hidden;*/
          position: relative;
+         transition: all 1s;
          transform-style: preserve-3d;
          transform-origin: center center -400px;
      }
@@ -208,12 +209,12 @@
      }
      .scene ul li:nth-child(6){
          background: #6f6;
-         /*transform: rotateY(360deg);*/
+         transform: rotateY(360deg);
          /*transform: translateZ(-100px) rotateY(180deg);*/
      }
      .next,.prev{
-         width:30px;
-         height:30px;
+         width:60px;
+         height:60px;
          position: absolute;
          bottom: 0;
          top:0;
@@ -351,7 +352,9 @@
                 $(".kuanyuan").css("transform","scale(1,1)")
             }
             if (index===4) {
-                $(".scene").css("transformStyle","preserve-3d")
+                $(".scene ul").css("transform","rotateY(720deg) scale(1,1)");
+                $(".next").transition({x:0});
+                $(".prev").transition({x:0});
             }
             },
         onLeave:function(index){
@@ -365,17 +368,33 @@
                 $(".kuanyuan").css("transform","scale(0,0)")
             }
             if (index===4) {
-                $(".scene").css("transformStyle","none")
+                $(".scene ul").css("transform","rotateY(0deg) scale(0,0)");
+                $(".next").transition({x:500});
+                $(".prev").transition({x:-500});
             }
 
         }
 
     });
+
     $(".next").click(function () {
-        $(".scene ul").transition({rotateY:"-=60"})
+        $(".scene ul").transition({rotateY:"-=60"});
+//        $(".scene ul li:nth-child(1)").css({background:"#ff6",
+//        transform: "rotateY(60deg)"});
+//        $(".scene ul li:nth-child(2)").css({background:"#ff6",
+//            transform: "rotateY(120deg)"});
+//        $(".scene ul li:nth-child(3)").css({background:"#ff6",
+//            transform: "rotateY(180deg)"});
+//        $(".scene ul li:nth-child(4)").css({background:"#ff6",
+//            transform: "rotateY(240deg)"});
+//        $(".scene ul li:nth-child(5)").css({background:"#ff6",
+//            transform: "rotateY(300deg)"});
+//        $(".scene ul li:nth-child(6)").css({background:"#ff6",
+//            transform: "rotateY(360deg)"});
     });
     $(".prev").click(function () {
         $(".scene ul").transition({rotateY:"+=60"})
     })
+
 </script>
 </html>
