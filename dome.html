@@ -12,9 +12,46 @@
     <script src="jquery.fullPage.min.js"></script>
     <script src="jquery.transit.js"></script>
     <link rel="stylesheet" href="rsps.css">
+    <link rel="stylesheet" href="iconfont.css">
 </head>
 <style>
-     .back{
+    * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    #menu {
+        width: 100%;
+        height: 30px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.61);
+        z-index:9999;
+    }
+    #menu ul {
+        width: 1000px;
+        height: 30px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+    }
+    #menu li{
+        width:100px;
+        color: skyblue;
+    }
+    #menu li.active{
+        color: green;
+    }
+    #menu a{
+        color:deepskyblue;
+        font-size:16px;
+        line-height:30px;
+        text-decoration: none;
+    }
+
+    .back{
          left: 0;
          top: 0;
          bottom: 0;
@@ -54,9 +91,12 @@
          overflow: hidden;
          transform:translateX(10px);
          transition: 2s all;
+         z-index: 999;
+
      }
      .logo1 img{
          width:100%;
+         z-index: 999;
      }
     .logo img{
         width:100%;
@@ -112,7 +152,7 @@
      }
      .diergebt p{
          font-size: 14px;
-         color: #55575d;
+         color: #000;
          line-height: 24px;
          margin-bottom: 25px;
      }
@@ -173,6 +213,7 @@
          transition: all 1s;
          transform-style: preserve-3d;
          transform-origin: center center -400px;
+         transform: rotateY(0deg) scale(0,0);
      }
      .scene ul li{
          width:400px;
@@ -181,6 +222,8 @@
          text-align: center;
          position: absolute;
          transform-origin: center center -400px;
+         border-radius: 92px;
+         overflow: hidden;
      }
      .scene ul li:nth-child(1){
          background: #ff6;
@@ -222,49 +265,124 @@
          border-radius: 50%;
          /*border:1px solid red;*/
          background: #000;
-         line-height: 30px;
+         line-height: 60px;
          text-align: center;
          color: #fff;
          cursor: pointer;
+         font-size: 24px;
      }
      .next{
+         transform: translate(500px);
          right: -200px;
      }
      .prev{
+         transform: translate(-500px);
          left:-200px;
      }
+     .disigedhz{
+         padding: 60px 0;
+         transform: scale(0,0);
+         transition: all 1s;
+     }
+     .sousuodhz{
+         margin-right: 10px;
+     }
+
+     .name{
+         width: 100%;
+         border: 1px solid #e4e7e9;
+         border-radius: 3px;
+         color: #a3a8ab;
+         margin-bottom: 20px;
+         padding: 10px 0;
+         padding-left: 10px;
+     }
+     .email{
+         width: 100%;
+         border: 1px solid #e4e7e9;
+         border-radius: 3px;
+         color: #a3a8ab;
+         margin-bottom: 20px;
+         padding: 10px 0;
+         padding-left: 10px;
+     }
+     .massege{
+         width: 100%;
+         height: 166px;
+         margin: 0 0 20px;
+         resize: none;
+         border: 1px solid #e4e7e9;
+         border-radius: 3px;
+         outline: none;
+         font-size: 15px;
+         line-height: 24px;
+         font-weight: 500;
+         color: #a3a8ab;
+         padding: 10px 0;
+         padding-left: 10px;
+     }
+     .tijiao{
+         text-transform: uppercase;
+         padding: 15px 30px;
+         background: #1a1a1a;
+         color: #fff;
+         border: 0;
+         border-radius: 2px;
+         font-size: 24px;
+         letter-spacing: 0.046875em;
+     }
+     .disanleft2{
+         float: right;
+     }
+     .item{
+         margin-bottom: 30px;
+         overflow: hidden;
+     }
+     .icon{
+         float: left;
+         margin-right: 15px;
+     }
+     .icon span{
+         display: block;
+         height: 60px;
+         width: 60px;
+         background-color: #f6f6f6;
+         color: #55575d;
+         font-size: 36px;
+         text-align: center;
+         line-height: 60px;
+     }
+     .content{
+         display: table;
+     }
+     .content p{
+         font-size: 16px;
+         line-height: 26px;
+         color: #000;
+         margin: 0px;
+     }
+     .icon span .iconfont{
+         font-size: 36px;
+     }
+
 </style>
 <body>
-<div class="back" style="background-image:url('img/hd-1.jpg');"></div>
+<!--<div class="back" style="background-image:url('img/hd-1.jpg');"></div>-->
 <div class="dowebok">
-    <div class="section">
+    <div id="menu">
+        <ul>
+            <li data-menuanchor="p1" class="active"><a href="#p1">个人简介</a></li>
+            <li data-menuanchor="p2"><a href="#p2">个人技能</a></li>
+            <li data-menuanchor="p3"><a href="#p3">作品展示</a></li>
+            <li data-menuanchor="p5"><a href="#p4">请联系我</a></li>
+        </ul>
+    </div>
+    <div class="section" style="background-image: url(img/bg-color-1.jpg); height: 637px;">
         <div class="logo1">
             <img src="img/logo.jpg" alt="">
         </div>
     </div>
-    <div class="section">
-        <div class="logo">
-        </div>
-        <div class="kuan">
-            <div class="kuanyuan">
-                <p>百大DJ</p>
-                <img src="img/artist-1.jpg" alt="">
-            </div>
-            <div class="kuanyuan">
-                <p>百大DJ</p>
-                <img src="img/artist-2.jpg" alt="">
-            </div>
-            <div class="kuanyuan">
-                <p>百大DJ</p>
-                <img src="img/artist-3.jpg" alt="">
-            </div>
-            <div class="kuanyuan">
-                <p>百大DJ</p>
-                <img src="img/artist-4.jpg" alt="">
-            </div>
-        </div>
-    </div>
-    <div class="section">
+    <div class="section"  style="background-image: url(img/bg-color-2.jpg); height: 637px;">
         <ul class="row">
             <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12 dierpai">
                 <div class="dierpaihz">
@@ -314,19 +432,77 @@
             </li>
         </ul>
     </div>
-    <div class="section">
+    <div class="section"  style="background-image: url(img/bg-color-4.jpg); height: 637px;">
         <div class="scene">
             <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
+                <li>
+                    <img src="img/1.jpg" alt="" style="width: 100%">
+                </li>
+                <li>
+                    <img src="img/2.jpg" alt="" style="width: 100%">
+                </li>
+                <li>
+                    <img src="img/3.png" alt="" style="width: 100%">
+                </li>
+                <li style="overflow: hidden">
+                    <img src="img/4.jpg" alt="" style="height: 100%; margin: 0 auto;">
+                </li>
+                <li>
+                    <img src="img/5.jpg" alt="" style="width: 100%">
+                </li>
+                <li>
+                    <img src="img/6.jpg" alt="" style="width: 100%">
+                </li>
             </ul>
             <div class="next">&gt;</div>
             <div class="prev">&lt;</div>
         </div>
+    </div>
+    <div class="section"  style="background-image: url(img/bg-color-3.jpg); height: 637px;">
+        <section class="disigedhz">
+            <div class="container">
+                <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12 diergebt">
+                    <h3>联系我</h3>
+                    <p>想要逃避总有借口，想要成功总有方法！不为失败找借口，要为成功找出路！</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-sm-6 col-xs-12 col-lg-8">
+                        <div class="sousuodhz">
+                            <input type="text" placeholder="姓名" class="name">
+                            <input type="text" placeholder="邮箱" class="email">
+                            <textarea name="" id="" cols="30" rows="10"  class="massege">留言</textarea>
+                            <input type="submit" class="tijiao">
+                        </div>
+                    </div>
+                    <div class="disanleft2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="item">
+                            <div class="icon">
+                                <span><i class="iconfont icon-dizhi"></i></span>
+                            </div>
+                            <div class="content">
+                                <p>山西省太原市小店区平阳路<br>学府街凯通大厦</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="icon">
+                                <span><i class="iconfont icon-c2"></i></span>
+                            </div>
+                            <div class="content">
+                                <p>+212 668 35 45 69<br>02-123456</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="icon">
+                                <span><i class="iconfont icon-youxiang"></i></span>
+                            </div>
+                            <div class="content">
+                                <p>contact@yourmail.com<br>contact@yourmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 </div>
 </body>
@@ -335,6 +511,7 @@
     $(".dowebok").fullpage({
         'navigation': true,
         scrollingSpeed:1000,
+        anchors: ["p1", "p2", "p3", "p4"],
 //        onLeave:function(index){
 //            if(index===1){
 //            $(".logo").css("transform","scaleX(1)");
@@ -342,16 +519,16 @@
 //            }
 //        },
         afterLoad:function(anchor,index){
-            if(index===3){
+            if(index===2){
                 $(".dierpai").css("transform","scale(1,1)")
             }
             if(index===1){
                 $(".logo1").css("transform","translateY(0)");
             }
-            if(index===2){
-                $(".kuanyuan").css("transform","scale(1,1)")
+            if(index===4){
+                $(".disigedhz").css("transform","scale(1,1)")
             }
-            if (index===4) {
+            if (index===3) {
                 $(".scene ul").css("transform","rotateY(720deg) scale(1,1)");
                 $(".next").transition({x:0});
                 $(".prev").transition({x:0});
@@ -359,15 +536,15 @@
             },
         onLeave:function(index){
             if(index===1){
-                $(".logo1").css("transform","translateY(500px)");
-            }
-            if(index===3){
-                $(".dierpai").css("transform","scale(0,0)")
+                $(".logo1").css("transform","translateY(-500px)");
             }
             if(index===2){
-                $(".kuanyuan").css("transform","scale(0,0)")
+                $(".dierpai").css("transform","scale(0,0)")
             }
-            if (index===4) {
+            if(index===4){
+                $(".disigedhz").css("transform","scale(0,0)")
+            }
+            if (index===3) {
                 $(".scene ul").css("transform","rotateY(0deg) scale(0,0)");
                 $(".next").transition({x:500});
                 $(".prev").transition({x:-500});
@@ -379,18 +556,6 @@
 
     $(".next").click(function () {
         $(".scene ul").transition({rotateY:"-=60"});
-//        $(".scene ul li:nth-child(1)").css({background:"#ff6",
-//        transform: "rotateY(60deg)"});
-//        $(".scene ul li:nth-child(2)").css({background:"#ff6",
-//            transform: "rotateY(120deg)"});
-//        $(".scene ul li:nth-child(3)").css({background:"#ff6",
-//            transform: "rotateY(180deg)"});
-//        $(".scene ul li:nth-child(4)").css({background:"#ff6",
-//            transform: "rotateY(240deg)"});
-//        $(".scene ul li:nth-child(5)").css({background:"#ff6",
-//            transform: "rotateY(300deg)"});
-//        $(".scene ul li:nth-child(6)").css({background:"#ff6",
-//            transform: "rotateY(360deg)"});
     });
     $(".prev").click(function () {
         $(".scene ul").transition({rotateY:"+=60"})
